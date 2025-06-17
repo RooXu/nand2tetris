@@ -1,0 +1,9 @@
+//The Assembler 
+/*This is the C Code written to convert symbolic representation of machine code (Assembly) into binary. The language neutral API for this assembler is described in chapter six of the Nand2Tetris textbook. I am writing this assembler in C to familiarize myself with the C syntax.*/
+
+#include <stdio.h>
+
+int main() {
+	printf("Hello World!");
+	return 0; 
+}
