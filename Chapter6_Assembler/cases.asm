@@ -11,8 +11,8 @@
 A
 D
 M     
-DM=D+1
-ADM = D + 1 ; JMP
+MD=D+1
+AMD = D + 1 ; JMP
 // L commands
 (LOOP)
 (END) 

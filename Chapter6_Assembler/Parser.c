@@ -1,6 +1,6 @@
 //Parser Implementation 
 
-#include "Parser.h" 
+#include "parser.h" 
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
@@ -22,9 +22,9 @@ int construct(FILE *source, FILE *binary){
 	if(sourceLocal == NULL){
 		return 1;
 	}else{
-		while(fgets(buffer, 50, sourceLocal)){
-			fputs(buffer, stdout);
-		}
+	//	while(fgets(buffer, 50, sourceLocal)){
+	//		fputs(buffer, stdout);
+	//	}
 	}
 	printf("+++++ CHECKING LOCAL POINTER:DONE ++++++\n");
 	rewind(sourceLocal);
