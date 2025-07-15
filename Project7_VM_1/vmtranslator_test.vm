@@ -1,0 +1,17 @@
+push LCL 0
+push LCL 1
+add
+pop LCL 2
+push LCL 1
+push LCL 2
+add
+pop LCL 3
+push LCL 2
+push LCL 3
+add
+pop LCL 4 
+push constant 1 
+push constant 69
+pop THIS 0
+
+

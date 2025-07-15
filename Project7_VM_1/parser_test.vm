@@ -1,0 +1,17 @@
+//Parser Test File 
+pop LCL 3
+push ARG 2
+pop ARG 3 
+add
+sub
+neg
+eq
+// comment
+gt
+label bob
+label smith
+function chung 3 //comment 
+call pung 2
+return
+goto xxx
+if-goto fff
