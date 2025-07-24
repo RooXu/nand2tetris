@@ -1,0 +1,144 @@
+            //Output Name: SimpleFunction.asm
+            //BootStrapping: False
+        //Main code body below
+         //Function SimpleFunction.test
+(SimpleFunction.test)
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+@0
+D=A
+@SP
+A=M
+M=D
+@SP
+M=M+1
+            // push LCL 0
+@LCL
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+            // push LCL 1
+@LCL
+D=M
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// add
+@SP
+M=M-1
+A=M
+D=M
+A=A-1
+M=D+M
+// not
+@SP
+A=M
+A=A-1
+M=!M
+            // push ARG 0
+@ARG
+D=M
+@0
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// add
+@SP
+M=M-1
+A=M
+D=M
+A=A-1
+M=D+M
+            // push ARG 1
+@ARG
+D=M
+@1
+A=D+A
+D=M
+@SP
+A=M
+M=D
+@SP
+M=M+1
+// sub
+@SP
+M=M-1
+A=M
+D=M
+A=A-1
+M=M-D
+         // Return
+@LCL
+D=M
+@R13
+M=D
+@5
+A=D-A
+D=M
+@R14
+M=D
+@SP
+A=M-1
+D=M
+@ARG
+A=M
+M=D
+@ARG
+D=M+1
+@SP
+M=D
+@R13
+D=M
+@1
+A=D-A
+D=M
+@THAT
+M=D
+@R13
+D=M
+@2
+A=D-A
+D=M
+@THIS
+M=D
+@R13
+D=M
+@3
+A=D-A
+D=M
+@ARG
+M=D
+@R13
+D=M
+@4
+A=D-A
+D=M
+@LCL
+M=D
+@R13
+M=0
+@R14
+D=M
+M=0
+A=D
+0;JMP

@@ -30,25 +30,36 @@ class VMParser:
         "temp" : "temp",
         "constant" : "constant"
     }
-    
+    stream_loc = -1
     def __init__(self,vm_file):
+        self.current_path = vm_file
+        slash_index = vm_file.find("/")+1
+        self.current_file = vm_file[slash_index:]
         self.file = open(vm_file)
         self.current_command = '\n'
         self.args = []
     
     def hasMoreCommands(self):
-        if self.current_command.endswith('\n'):
+        #print("Previous Loc:" + str(self.stream_loc))
+        #print("Current Loc:" + str(self.file.tell()))
+        if self.stream_loc != self.file.tell():
             return True
         else:
             return False
  
     
     def advance(self):
+        #print('advancing\n')
         if not(self.hasMoreCommands()):
             raise Exception("No More Commands Left")
+        self.stream_loc = self.file.tell()
+        self.current_command = self.file.readline().lstrip()
         
-        self.current_command = self.file.readline()
-
+    
+        #print("file read\n")
+        if (self.current_command.isspace() or self.current_command == ''):
+            self.current_command = '//'
+        
         has_comment = self.current_command.find('//')
         if has_comment == -1:
             self.args = self.current_command.split()
@@ -56,8 +67,8 @@ class VMParser:
             self.args = ['']
         else:
             self.args = self.current_command[0:has_comment].split()
-        if self.current_command.isspace():
-            self.advance()
+        
+       
         # Reads Next command from input and makes it the current command. Should be called only if hasMore Commands() is True. Initially, there is no current command
 
     def commandType(self):
@@ -87,6 +98,8 @@ class VMParser:
                 return self.segment_type[self.args[1]]
             except IndexError as err:
                 raise IndexError(f"Expected second argument for this command type: {self.args[0]}") from err
+            except KeyError:
+                return self.args[1]
                 
 
     def arg2(self):
